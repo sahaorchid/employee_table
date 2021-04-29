@@ -1,7 +1,5 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);
-    background-repeat: no-repeat;
 }
 * {box-sizing: border-box;}
 
@@ -17,6 +15,8 @@ body {
   bottom: 23px;
   right: 28px;
   width: 280px;
+  margin-bottom: 40px;
+  margin-left: 20px;
 }
 
 /* The popup form - hidden by default */
@@ -31,7 +31,7 @@ body {
 
 /* Add styles to the form container */
 .form-container {
-  max-width: 300px;
+  max-width: 800px;
   padding: 10px;
   background-color: white;
 }
@@ -72,12 +72,21 @@ body {
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
 }
-.h{
+#heading{
     font-family: sans-serif;
-    margin-left: 40%;
+    text-align: center;
     margin-bottom: 20px;;
     font-weight: bold;
 }
+@media (min-width: 200px) {
+  #heading{
+    font-size:20px;
+  }
+}
+
 .hp{
     font-family: sans-serif;
+}
+#table{
+  background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);
 }
