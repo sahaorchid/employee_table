@@ -14,10 +14,10 @@
   <body>
     <div class="container">
 
-    <h1 id="heading">Employees Table</h1>
+      <h1 id="heading">Employees Table</h1>
     </div>
     <div class="container">
-    <button class="open-button" onclick="openForm()">Add</button>
+      <button class="open-button" onclick="openForm()">Add</button>
     </div>
 
 
