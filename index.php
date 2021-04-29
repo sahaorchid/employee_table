@@ -12,10 +12,15 @@
     <title> Employees Table</title>
   </head>
   <body>
-    <h1 class="h">Employees Table</h1>
+    <div class="container">
 
-
+    <h1 id="heading">Employees Table</h1>
+    </div>
+    <div class="container">
     <button class="open-button" onclick="openForm()">Add</button>
+    </div>
+
+
 
     <div class="form-popup" id="myForm">
     <form class="form-container" method="post">
@@ -39,68 +44,69 @@
     </div>
 
 
-    
-    <table class="table table-striped">
-          <thead>
-            <tr>
-              <th scope="col">Name</th>
-              <th scope="col">Designation</th>
-              <th scope="col">Address</th>
-              <th scope="col">Phone</th>
-            </tr>
-          </thead>
+    <div class="container">
+      <table class="table table-striped" id="table">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Designation</th>
+                <th scope="col">Address</th>
+                <th scope="col">Phone</th>
+              </tr>
+            </thead>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="index.js"></script>
-    <?php
-        $servername="localhost";
-        $username="root";
-        $password="";
-        $database="employee";
-        $con=mysqli_connect($servername,$username,$password,$database);
-        if(!$con){
-        echo"your connection is failed".mysqli_connect_erroe();
-        }
-        if($_SERVER['REQUEST_METHOD']=='POST'){
-            $name=$_POST['Name'];
-            $designation=$_POST['Designation'];
-            $address=$_POST['Address'];
-            $phone=$_POST['Phone'];
-          $sql="INSERT INTO `employees` (`name`, `designation`, `address`, `phone`) VALUES ( '$name', '$designation', '$address', '$phone')";
-          $result=mysqli_query($con,$sql);
-          if(!$result){
-            echo"not succesfully entered";   
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      <script src="index.js"></script>
+      <?php
+          $servername="localhost";
+          $username="root";
+          $password="";
+          $database="employee";
+          $con=mysqli_connect($servername,$username,$password,$database);
+          if(!$con){
+          echo"your connection is failed".mysqli_connect_erroe();
           }
-        }
-    ?>
-    <?php
-
-    //fetch data from database
-    
-    $sql="SELECT * FROM `employees`";
-    $result=mysqli_query($con,$sql);
-    $num=mysqli_num_rows($result);
-        while($rows=mysqli_fetch_assoc($result)){
-            
-            //show data
-            
-            echo"
-            <tbody>".
-                "<tr>".
-                "<th scope="."row".">".$rows['name']."</th>".
-                "<td>".$rows['designation']."</td>".
-                "<td>".$rows['address']."</td>".
-                "<td>".$rows['phone']."</td>".
-                "</tr>".
-            "</tbody>";
+          if($_SERVER['REQUEST_METHOD']=='POST'){
+              $name=$_POST['Name'];
+              $designation=$_POST['Designation'];
+              $address=$_POST['Address'];
+              $phone=$_POST['Phone'];
+            $sql="INSERT INTO `employees` (`name`, `designation`, `address`, `phone`) VALUES ( '$name', '$designation', '$address', '$phone')";
+            $result=mysqli_query($con,$sql);
+            if(!$result){
+              echo"not succesfully entered";   
             }
-    ?> 
-    </table>  
+          }
+      ?>
+      <?php
+
+      //fetch data from database
+      
+      $sql="SELECT * FROM `employees`";
+      $result=mysqli_query($con,$sql);
+      $num=mysqli_num_rows($result);
+          while($rows=mysqli_fetch_assoc($result)){
+              
+              //show data
+              
+              echo"
+              <tbody>".
+                  "<tr>".
+                  "<th scope="."row".">".$rows['name']."</th>".
+                  "<td>".$rows['designation']."</td>".
+                  "<td>".$rows['address']."</td>".
+                  "<td>".$rows['phone']."</td>".
+                  "</tr>".
+              "</tbody>";
+              }
+      ?> 
+      </table> 
+    </div> 
     
 </body>
 </html>
